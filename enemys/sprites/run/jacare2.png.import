@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/kury1.png-eddcdad2fcd71de85a1866024df2d185.stex"
+path="res://.import/jacare2.png-e2e73154bd8e46c70f68dc4afc9ccf56.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemys/sprites/run/kury1.png"
-dest_files=[ "res://.import/kury1.png-eddcdad2fcd71de85a1866024df2d185.stex" ]
+source_file="res://enemys/sprites/run/jacare2.png"
+dest_files=[ "res://.import/jacare2.png-e2e73154bd8e46c70f68dc4afc9ccf56.stex" ]
 
 [params]
 

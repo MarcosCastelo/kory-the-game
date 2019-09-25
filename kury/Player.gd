@@ -3,7 +3,7 @@ extends KinematicBody2D
 var speed = 400
 var x = 0
 var y = 0
-var dir 
+var dir = Vector2(0, 1)
 onready var shuriken = preload("res://shuriken/Shuriken.tscn")
 
 
@@ -49,7 +49,7 @@ func move(x, y):
 func shuriken():
 	var i_shuriken = shuriken.instance()
 	get_parent().add_child(i_shuriken)
-	i_shuriken.set_position(position)
+	get_node("AnimatedSprite").play("throw")
+	i_shuriken.set_position(position + dir * 30)
 	i_shuriken.get_node("KinematicBody2D").direction = dir
-	
 	print(i_shuriken.get_position())
