@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://tiles/door.png" type="Texture" id=1]
+
+[sub_resource type="CanvasItemMaterial" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 14.6254, 47.2304 )
 
 [node name="Sprite" type="Sprite"]
+material = SubResource( 2 )
 texture = ExtResource( 1 )
 centered = false
 

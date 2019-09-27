@@ -6,7 +6,7 @@ var y = 0
 var dir = Vector2(0, 1)
 onready var shuriken = preload("res://shuriken/Shuriken.tscn")
 var is_throwing = false
-var ammo = 1
+var ammo = 99
 
 
 func _ready():
@@ -64,7 +64,6 @@ func shuriken():
 	get_node("AnimatedSprite").play("throw")
 	i_shuriken.set_position(position + dir * 30)
 	i_shuriken.get_node("KinematicBody2D").direction = dir
-	print(i_shuriken.get_position())
 	is_throwing = true
 	ammo -= 1 
 	$Timer.start()
