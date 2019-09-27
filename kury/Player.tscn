@@ -1,33 +1,33 @@
 [gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://kury/Player.gd" type="Script" id=1]
-[ext_resource path="res://kury/sprites/idle/kury3.png" type="Texture" id=2]
-[ext_resource path="res://kury/sprites/idle/kury5.png" type="Texture" id=3]
-[ext_resource path="res://kury/sprites/idle/kury6.png" type="Texture" id=4]
-[ext_resource path="res://kury/sprites/run/kury1.png" type="Texture" id=5]
-[ext_resource path="res://kury/sprites/run/kury3.png" type="Texture" id=6]
-[ext_resource path="res://kury/sprites/run/kury2.png" type="Texture" id=7]
-[ext_resource path="res://kury/sprites/throw/kury4.png" type="Texture" id=8]
+[ext_resource path="res://kury/sprites/idle/kury stay1.png" type="Texture" id=2]
+[ext_resource path="res://kury/sprites/idle/kury stay2.png" type="Texture" id=3]
+[ext_resource path="res://kury/sprites/idle/kury stay3.png" type="Texture" id=4]
+[ext_resource path="res://kury/sprites/throw/kury4.png" type="Texture" id=5]
+[ext_resource path="res://kury/sprites/run/kury walk1.png" type="Texture" id=6]
+[ext_resource path="res://kury/sprites/run/kury stay2.png" type="Texture" id=7]
+[ext_resource path="res://kury/sprites/run/kury walk2.png" type="Texture" id=8]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 6 ) ],
-"loop": true,
-"name": "walk",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 8 ), ExtResource( 2 ) ],
+"frames": [ ExtResource( 5 ), null ],
 "loop": false,
 "name": "throw",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 40.5326, 30.8086 )
 
 [sub_resource type="OccluderPolygon2D" id=3]
@@ -45,9 +45,11 @@ position = Vector2( 0, 6 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 1 )
 animation = "idle"
+frame = 3
+playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBody"]
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="PlayerBody"]
 occluder = SubResource( 3 )

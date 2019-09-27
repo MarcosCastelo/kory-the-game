@@ -53,3 +53,6 @@ func shuriken():
 	i_shuriken.set_position(position + dir * 30)
 	i_shuriken.get_node("KinematicBody2D").direction = dir
 	print(i_shuriken.get_position())
+	
+func die():
+	get_tree().reload_current_scene()

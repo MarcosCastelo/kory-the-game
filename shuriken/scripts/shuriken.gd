@@ -14,3 +14,11 @@ func _process(delta):
 
 
 	
+
+
+func _on_Area2D_body_entered(body):
+	if body.name == "EnemyBody":
+		body.get_parent().is_dead = true
+		queue_free()
+	if body.name == "TileMap":
+		queue_free()
