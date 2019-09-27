@@ -20,4 +20,10 @@ func _on_Timer_timeout():
 func _on_Level1_body_entered(body):
 	if body.name == "PlayerBody":
 		get_node("Camera2D/AnimationPlayer").play("level1")
-		get_node("Level1").queue_free()
+		get_node("Level1/CollisionShape2D").queue_free()
+
+
+func _on_Level2_body_entered(body):
+	if body.name == "PlayerBody":
+		get_node("Camera2D/AnimationPlayer").play("level2")
+		get_node("Level2/CollisionShape2D").queue_free()

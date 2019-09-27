@@ -9,7 +9,7 @@ var x
 onready var enemyBody = get_node("EnemyBody")
 onready var timer = get_node("Timer")
 onready var raycast = get_node("EnemyBody/RayCast2D")
-onready var player = get_parent().get_node("Player/PlayerBody")
+onready var player = get_parent().get_parent().get_node("Player/PlayerBody")
 var ray = false
 var is_dead = false
 
@@ -34,7 +34,7 @@ func _process(delta):
 			enemyBody.get_node("AnimatedSprite").play("walk")
 			enemyBody.move_and_slide(x * speed)
 			enemyBody.rotation_degrees = rad2deg(x.angle()) - 90
-			if enemyBody.position.distance_to(points[ponto_proximo]) < 5 :
+			if enemyBody.position.distance_to(points[ponto_proximo]) < 8 :
 				ponto_atual = ponto_proximo
 				ponto_proximo += 1
 				if points.size() == ponto_proximo:
@@ -44,6 +44,9 @@ func _process(delta):
 				x = points[ponto_proximo] - points[ponto_atual]
 				x = x.normalized()
 				timer.start()
+			
+			
+			
 	else:
 		die()
 		

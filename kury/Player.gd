@@ -5,6 +5,8 @@ var x = 0
 var y = 0
 var dir = Vector2(0, 1)
 onready var shuriken = preload("res://shuriken/Shuriken.tscn")
+var is_throwing = false
+var ammo = 1
 
 
 func _ready():
@@ -12,9 +14,17 @@ func _ready():
 	set_process_input(true)
 	
 
+func reload(cont):
+	ammo = cont
+
+	
+
 func _input(event):
 	if event.is_action_pressed("ui_shuriken"):
-		shuriken()
+		if not is_throwing and ammo > 0:
+			shuriken()
+		else:
+			pass
 
 
 func _process(delta):
@@ -32,6 +42,8 @@ func _process(delta):
 	
 	if x != 0 or y != 0 :	
 		move(x, y)
+	elif is_throwing:
+		get_node("AnimatedSprite").play("throw")
 	else :
 		get_node("AnimatedSprite").play("idle")
 	x = 0
@@ -53,6 +65,14 @@ func shuriken():
 	i_shuriken.set_position(position + dir * 30)
 	i_shuriken.get_node("KinematicBody2D").direction = dir
 	print(i_shuriken.get_position())
+	is_throwing = true
+	ammo -= 1 
+	$Timer.start()
+
 	
 func die():
 	get_tree().reload_current_scene()
+
+
+func _on_Timer_timeout():
+	is_throwing = false
